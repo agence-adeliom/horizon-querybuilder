@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Adeliom\HorizonTools\Database;
+namespace Adeliom\HorizonQueryBuilder\Database;
 
 class LatLngQuery
 {
