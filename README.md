@@ -11,14 +11,14 @@ Un QueryBuilder fluide et moderne pour WordPress, développé par l'Agence Adeli
 
 ### Via Composer
 
-Ce package est hébergé sur un repository privé. Vous devez d'abord ajouter le repository VCS dans votre fichier `composer.json` :
+Ce package n'étant pas publié sur Packagist, vous devez ajouter le repository VCS dans votre fichier `composer.json` :
 
 ```json
 {
     "repositories": [
         {
             "type": "vcs",
-            "url": "git@github.com:agence-adeliom/horizon-querybuilder.git"
+            "url": "https://github.com/agence-adeliom/horizon-querybuilder.git"
         }
     ]
 }
