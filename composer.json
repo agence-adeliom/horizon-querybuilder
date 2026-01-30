@@ -1,0 +1,20 @@
+{
+  "name": "agence-adeliom/horizon-querybuilder",
+  "description": "QueryBuilder for WordPress, made by the Adeliom Agency",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Adeliom\\HorizonQueryBuilder\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Agence Adeliom",
+      "email": "dev@adeliom.com"
+    }
+  ],
+  "require": {
+    "php": ">=8.2"
+  }
+}
