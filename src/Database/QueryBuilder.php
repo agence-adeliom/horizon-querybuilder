@@ -667,6 +667,10 @@ class QueryBuilder
         $args['orderby'] = $this->orderBy;
         $args['order'] = $this->order;
 
+        if (in_array($this->orderBy, [self::ORDER_BY_META_KEY, self::ORDER_BY_META_KEY_NUM])) {
+            $args['meta_key'] = $this->orderMetaKey;
+        }
+
         if ([] !== $this->metaQueries) {
             foreach ($this->metaQueries as $metaQuery) {
                 if ($metaQuery instanceof MetaQuery) {
