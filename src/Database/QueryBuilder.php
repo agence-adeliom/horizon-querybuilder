@@ -33,6 +33,7 @@ class QueryBuilder
     private array $metaQueries = [];
     private array $taxQueries = [];
     private array $latLngQueries = [];
+    private array $dateQueries = [];
     private ?string $asClass = null;
     private ?int $perPage = null;
     private int $page = 1;
@@ -296,6 +297,17 @@ class QueryBuilder
             }
 
             $this->latLngQueries[] = $latLngQuery;
+        }
+
+        return $this;
+    }
+
+    public function addDateQuery(DateQuery $dateQuery): self
+    {
+        $this->triggerChange();
+
+        if ([] !== $dateQuery->getQuery()) {
+            $this->dateQueries[] = $dateQuery;
         }
 
         return $this;
@@ -594,6 +606,18 @@ class QueryBuilder
                 if ($latLngQuery instanceof LatLngQuery) {
                     $args['lat_lng_query'][] = $latLngQuery->generateLatLngQueryArray();
                 }
+            }
+        }
+
+        if ([] !== $this->dateQueries) {
+            foreach ($this->dateQueries as $dateQuery) {
+                if ($dateQuery instanceof DateQuery) {
+                    $args['date_query'][] = $dateQuery->generateDateQueryArray();
+                }
+            }
+
+            if (count($this->dateQueries) > 1) {
+                $args['date_query']['relation'] = 'AND';
             }
         }
 
